@@ -4,7 +4,7 @@
     "parameters": {
         "storageAccountName": {
             "type": "string",
-            "defaultValue": "azurechallengegithua051",
+            "defaultValue": "geo101",
             "metadata": {
                 "description": "description"
             }
@@ -18,7 +18,7 @@
         },
         "functionName": {
             "type": "string",
-            "defaultValue": "func-azurechallengegithua051-we-dev",
+            "defaultValue": "func-geo101-we-dev",
             "metadata": {
                 "description": "description"
             }
