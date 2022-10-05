@@ -4,7 +4,7 @@
     "parameters": {
         "storageAccountName": {
             "type": "string",
-            "defaultValue": "stgghchlgalexmang",
+            "defaultValue": "azurechallengegithua051",
             "metadata": {
                 "description": "description"
             }
