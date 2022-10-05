@@ -1,26 +1,18 @@
-# File: .github/workflows/workflow.yml
-
 on: [push, workflow_dispatch]
-
-name: AzureLoginWithNoSubscriptions
+name: AzureARMSample
 
 jobs:
-
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      ResourceGroupName: AzureChallengeGitHubActionsRG
     steps:
     - uses: actions/checkout@master
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-        allow-no-subscriptions: true
-    - name: Run ARM deploy
-      uses: azure/arm-deploy@v1
-      with: 
-       subscriptions: ${{ secrets.AZURE_SUBSCRIPTION }}
-       resourceGroupName: ${{ secrets.AZURE_RG }}
-       template: ./azuredeploy1.json
-       parameters: storageAccountType=Standard_LRS
-       
-    - run: echo ${{ steps.deploy.outputs.containerName }}
-       
+    
+    - uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: ${{ env.ResourceGroupName }}
+        template: ./azuredeploy.json
